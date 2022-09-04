@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+li {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+li span {
+  color: hsl(174deg, 86%, 45%);
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: hsl(230deg, 100%, 99%);
+  color: hsl(225deg, 20%, 60%);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: url(./images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .top {
+  background: url(./images/pattern-circles.svg);
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  gap: 15px;
+}
+.container .top .header {
+  color: hsl(227deg, 35%, 25%);
+}
+.container .top p {
+  color: hsl(225deg, 20%, 60%);
+  font-size: 15px;
+}
+.container .bottom {
+  background-color: white;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 20px 40px 2px hsl(225deg, 20%, 60%);
+}
+.container .bottom .bottomHeader {
+  width: 80%;
+  justify-content: space-between;
+  display: grid;
+  gap: 20px;
+  position: relative;
+  align-items: center;
+  gap: 50px;
+  grid-template-areas: "pageviews deal" "slider slider";
+}
+.container .bottom .bottomHeader .pageviews {
+  grid-area: "pageviews";
+  font-size: 0.8rem;
+  color: hsl(225deg, 20%, 60%);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.container .bottom .bottomHeader .deal {
+  grid-area: "deal";
+  display: flex;
+  align-items: center;
+}
+.container .bottom .bottomHeader .deal .money {
+  font-size: 2rem;
+  font-weight: 700;
+  color: hsl(227deg, 35%, 25%);
+}
+.container .bottom .bottomHeader .rangeSlider {
+  width: 100%;
+  display: grid;
+  grid-column: span 2;
+  grid-area: "slider";
+  position: relative;
+}
+.container .bottom .bottomHeader .rangeSlider .range {
+  -webkit-appearance: none;
+  height: 10px;
+  background-color: hsl(174deg, 77%, 80%);
+  border-radius: 100px;
+}
+.container .bottom .bottomHeader .rangeSlider .range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-image: url(./images/icon-slider.svg);
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: hsl(174deg, 86%, 45%);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 15px 30px 8px hsl(174deg, 77%, 80%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.container .bottom .bottomHeader .rangeSlider .range::-webkit-slider-thumb:active {
+  background-color: hsl(174deg, 77%, 80%);
+}
+.container .bottom .middleThing {
+  display: flex;
+  width: 80%;
+  padding-block: 30px;
+  justify-content: flex-end;
+  font-size: 13px;
+  gap: 10px;
+}
+.container .bottom .middleThing .discount {
+  background-color: hsl(14deg, 92%, 95%);
+  color: hsl(15deg, 100%, 70%);
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+.container .bottom .middleThing .toggle {
+  width: 40px;
+  height: 20px;
+  background-color: hsl(226deg, 100%, 87%);
+  border-radius: 50px;
+  position: relative;
+}
+.container .bottom .middleThing .toggle .button {
+  height: 20px;
+  background-color: white;
+  border: 1px solid hsl(226deg, 100%, 87%);
+  width: 20px;
+  position: absolute;
+  border-radius: 50px;
+  left: 0;
+  right: unset;
+  transition: left 200ms ease-in-out, right 200ms ease-in-out;
+}
+.container .bottom .middleThing .toggle .checkbox {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  width: 50px;
+}
+.container .bottom .bottomBottom {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .bottom .bottomBottom button {
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  background-color: hsl(227deg, 35%, 25%);
+  color: hsl(223deg, 50%, 87%);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    background-size: 250%;
+  }
+  .container .bottom {
+    position: absolute;
+    top: 35%;
+    width: 90%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding-block: 20px;
+  }
+  .container .bottom .bottomHeader {
+    grid-template-areas: "pageviews" "slider" "deal";
+  }
+  .container .bottom .bottomHeader .deal {
+    order: 3;
+    display: grid;
+    grid-column: span 2;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .container .bottom .bottomHeader .pageviews {
+    display: grid;
+    grid-column: span 2;
+    text-align: center;
+  }
+  .container .bottom .bottomHeader .deal {
+    display: flex;
+    justify-content: center;
+  }
+  .container .bottom .middleThing {
+    width: 100%;
+    font-size: 11px;
+    justify-content: center;
+  }
+  .container .bottom .bottomBottom {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .container .bottom .bottomBottom ul {
+    font-size: 11px;
+  }
+  .container .bottom .bottomBottom button {
+    padding: 15px 50px;
+  }
+}/*# sourceMappingURL=style.css.map */

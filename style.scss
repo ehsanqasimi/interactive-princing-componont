@@ -1,0 +1,250 @@
+@import './variables';
+
+
+
+li{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    span{
+        color: $StrongCyan;
+    }
+}
+input{
+    outline: none;
+    border: none;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: $MainFont;
+    background-color: $VeryPaleBlue;
+    color: $GrayishBlue;
+}
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: url(./images/bg-pattern.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .top{
+        background: url(./images/pattern-circles.svg);
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        gap: 15px;
+        .header{
+            color: $DarkDesaturatedBlue;
+        }
+        p{
+            color: $GrayishBlue;
+            font-size: 15px;
+        }
+    }
+
+
+    
+    .bottom{
+        background-color: white;
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 20px 40px 2px $GrayishBlue;
+        .bottomHeader{
+            width: 80%;
+            justify-content: space-between;
+            // border: 1px solid red;
+            display: grid;
+            gap: 20px;
+            position: relative;
+            align-items: center;
+            gap: 50px;
+            grid-template-areas:
+                'pageviews deal'
+                'slider slider'
+            ;
+            .pageviews{
+                grid-area: 'pageviews';
+                font-size: .8rem;
+                color: $GrayishBlue;
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
+
+            .deal{
+                grid-area: 'deal';
+                display: flex;
+                align-items: center;
+                .money{
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: $DarkDesaturatedBlue;
+                }
+            }
+
+            .rangeSlider{
+                width: 100%;
+                display: grid;
+                grid-column: span 2;
+                grid-area: 'slider';
+                position: relative;
+                .range{
+                    -webkit-appearance: none;
+                    height: 10px;
+                    background-color: $SoftCyan;
+                    border-radius: 100px;
+                }
+                .range::-webkit-slider-thumb{
+                    -webkit-appearance: none;
+                    background-image: url(./images/icon-slider.svg);
+                    height: 40px;
+                    width: 40px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-color: $StrongCyan;
+                    border-radius: 50%;
+                    z-index: 2;
+                    box-shadow: 0 15px 30px 8px $SoftCyan;
+                    transition: 0.4s;
+                    cursor: pointer;
+                }
+                .range::-webkit-slider-thumb:active{
+                    background-color: $SoftCyan;
+                }
+            }
+            
+        }
+        
+        .middleThing{
+            display: flex;
+            width: 80%;
+            padding-block: 30px;
+            // border: 1px solid red;
+            justify-content: flex-end;
+            font-size: 13px;
+            gap: 10px;
+            .discount{
+                background-color: $LightGrayishRed;
+                color: $LightRed;
+                padding: 2px 8px;
+                border-radius: 50px;
+            }
+            .toggle{
+                width: 40px;
+                height: 20px;
+                background-color: $PaleBlue;
+                border-radius: 50px;
+                position: relative;
+                .button{
+                    height: 20px;
+                    background-color: white;
+                    border: 1px solid $PaleBlue;
+                    width: 20px;
+                    position: absolute;
+                    border-radius: 50px;
+                    left: 0;
+                    right: unset;
+                    transition: left 200ms ease-in-out,
+                    right 200ms ease-in-out;
+                }
+                .checkbox{
+                    cursor: pointer;
+                    opacity: 0;
+                    position: absolute;
+                    z-index: 3;
+                    width: 50px;
+                }
+            }
+        }
+
+        .bottomBottom{
+            width: 80%;
+            display: flex;
+            // border: 1px solid purple;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                border: none;
+                outline: none;
+                padding: 10px 25px;
+                border-radius: 50px;
+                background-color: $DarkDesaturatedBlue;
+                color: $LightGrayishBlue;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .container{
+        background-size: 250%;
+        .bottom{
+            position: absolute;
+            top: 35%;
+            width: 90%;
+            height: fit-content;
+            padding-block: 20px;
+            .bottomHeader{
+                grid-template-areas: 
+                    'pageviews'
+                    'slider'
+                    'deal'
+                ;
+                .deal{
+                    order: 3;
+                    display: grid;
+                    grid-column: span 2;
+                    text-align: center;
+                    grid-template-columns: 1fr  1fr;
+                    gap: 20px;
+                }
+
+                .pageviews{
+                    display: grid;
+                    grid-column: span 2;
+                    text-align: center;
+                }
+                .deal{
+                    display: flex;
+                    justify-content: center;
+                }
+
+            }
+
+            .middleThing{
+                width: 100%;
+                font-size: 11px;
+                justify-content: center;
+            }
+
+            .bottomBottom{
+                flex-direction: column;
+                gap: 20px;
+                ul{
+                    font-size: 11px;
+                }
+                button{
+                    padding: 15px 50px;
+                }
+            }
+        }
+    }
+}
